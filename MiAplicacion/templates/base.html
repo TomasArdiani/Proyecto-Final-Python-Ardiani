@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Proyecto{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'landing_page' %}">Inicio</a></li>
+                <li><a href="{% url 'agregar_autor' %}">Agregar Autor</a></li>
+                <li><a href="{% url 'buscar_autor' %}">Buscar Autor</a></li>
+                <li><a href="{% url 'agregar_libro' %}">Agregar Libro</a></li>
+                <li><a href="{% url 'agregar_editorial' %}">Agregar Editorial</a></li>
+                <li><a href="{% url 'index_libros' %}">Index Libros</a></li>
+                {% if request.user.is_authenticated %}
+                    <li>Hola, {{ request.user.username }}</li>
+                {% endif %}
+            </ul>
+        </nav>
+        <!--  <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo">    no pude lograr que quede bien-->
+    </header>
+
+    <main class="main-content">
+        
+        {% block content %}
+
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Biblioteca online</p>
+    </footer>
+</body>
+</html>

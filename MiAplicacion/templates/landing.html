@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="landing-container">
+        <h1>Bienvenido a la Biblioteca</h1>
+        <p>Seleccione una opción:</p>
+        <ul class="landing-menu">
+            <li><a href="{% url 'agregar_autor' %}">Agregar Autor</a></li>
+            <li><a href="{% url 'buscar_autor' %}">Buscar Autor</a></li>
+            <li><a href="{% url 'agregar_libro' %}">Agregar Libro</a></li>
+        </ul>
+    </div>
+{% endblock %}

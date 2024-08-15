@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Buscar Autor{% endblock %}
+
+{% block content %}
+    <h2>Buscar Autor</h2>
+    <form method="get">
+        {{ form.as_p }}
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if autores %}
+        <ul>
+            {% for autor in autores %}
+                <li>{{ autor.nombre }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron autores.</p>
+    {% endif %}
+{% endblock %}
+
+</body>
+</html>

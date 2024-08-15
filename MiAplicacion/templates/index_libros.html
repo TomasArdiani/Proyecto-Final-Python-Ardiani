@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Libros{% endblock %}
+
+{% block content %}
+    {% for libro in libros %}
+    <ul>
+        <li>{{ libro.titulo }}</li>
+        <a href="{% url 'show_libro' libro.id %}">Detalles</a>
+    </ul>
+    {% empty %}
+        <h2>No hay libros cargados en la base de datos.</h2>
+    {% endfor %}
+{% endblock %}
